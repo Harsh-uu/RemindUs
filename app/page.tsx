@@ -1,4 +1,4 @@
-import Sidenav from "../component/sidenav";
+import Sidenav from "@/component/sidenav"
 
 export default function Page() {
   return (
