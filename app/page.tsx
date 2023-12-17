@@ -1,3 +1,7 @@
+import Sidenav from "../component/sidenav";
+
 export default function Page() {
-  return <div>Page</div>
+  return (
+  <Sidenav/>
+    )
 }
