@@ -2,7 +2,7 @@
 import Chunks from "@/components/chunks";
 import Search from "@/components/search";
 import useSWR from "swr";
-import { getReminders,updateReminder,createReminder,deleteReminder,productUrlEndPoint as cachekey } from "./api/reminders";
+import { getReminders,productUrlEndPoint as cachekey } from "./api/reminders";
 
 export default function Page() {
  const {
@@ -25,10 +25,10 @@ if (isLoading || isValidating) return <div>loading...</div>;
  
 
   return (
-    <div className="bg-gray-700 w-full  ">
+    <div className="bg-gray-700   ">
         {
           reminders?.map((reminder)=>(
-            <div key={reminder.id} className="bg- [#0f111a] m-2 p-4 rounded shadow-lg text-white  ">
+            <div key={reminder.id} className="bg-[#0f111a] m-2 p-4 rounded shadow-lg text-white  ">
           <h2 className="text-xl font-bold mb-2">{reminder.task}</h2>
           <p className="">{reminder.description}</p>
           <div className="mt-4">

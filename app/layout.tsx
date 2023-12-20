@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import Sidenav from "@/components/sidenav";
+import AddReminders from "@/components/add-reminders";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -18,9 +19,14 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <div className="flex justify-start items-start bg-gray-700 ">
+        <div className=" flex justify-start items-start bg-gray-700 ">
           <Sidenav />
-          <div className="px-4 ">{children}</div>
+          <div className="px-4 max-h-screen flex-1 overflow-y-auto py-2 ">
+            <div className="flex justify-end py-3">
+              <AddReminders/>
+            </div>
+            {children}
+            </div>
         </div>
       </body>
     </html>
