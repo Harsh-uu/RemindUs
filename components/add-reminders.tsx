@@ -4,9 +4,6 @@ import { IoMdAdd } from "react-icons/io";
 import { createReminder } from "@/app/api/reminders";
 import Reminder from "@/app/type";
 
-interface OpenModalProps {
-  showModal: boolean;
-}
 
 function AddReminders() {
   const Tags = {
@@ -32,7 +29,7 @@ function AddReminders() {
     const date = dateRef.current?.value;
     const time = timeRef.current?.value;
     const Tags = selectRef.current?.value;
-    const id = Math.floor(Math.random() * 1000) + 1;
+    const id = Math.random().toString(36).substring(2, length+2);
 
     const newReminder = {
       id,
@@ -44,6 +41,7 @@ function AddReminders() {
     };
 
     setShowModal(false);
+    createReminder(newReminder);
     
 
     console.log(newReminder);
@@ -93,7 +91,7 @@ function AddReminders() {
               />
               <select
                 ref={selectRef}
-                value={Tags.TODAY}
+                
                 className=" py-2 px-4  bg-gray-700 outline-none rounded"
               >
                 {Object.values(Tags).map((tag) => (

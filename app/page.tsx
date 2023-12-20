@@ -15,7 +15,7 @@ export default function Page() {
   revalidateOnFocus: true,
   onSuccess: (data) =>{
     console.log(data)
-    data.sort((a,b) => a.id - b.id)
+    data.sort((a, b) => ((a?.id || 0) as number) - ((b?.id || 0) as number));
   }
 });
 
